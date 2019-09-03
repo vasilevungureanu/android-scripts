@@ -7,7 +7,6 @@ readonly BRANCH_NAME=$(git symbolic-ref --short HEAD)
 readonly BRANCHES_TO_SKIP=(master)
 readonly BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
 
-if [[ -n "${BRANCH_NAME}" ]] && ! [[ "${BRANCH_EXCLUDED}" -eq 1 ]];
-  then
-    sed -i.bak -e "1s/^/${BRANCH_NAME}: /" "${1}"
+if [[ -n "${BRANCH_NAME}" ]] && ! [[ "${BRANCH_EXCLUDED}" -eq 1 ]]; then
+  sed -i.bak -e "1s/^/${BRANCH_NAME}: /" "${1}"
 fi

@@ -11,14 +11,13 @@
 set -o errexit
 set -o pipefail
 
-if [[ $# -ne 1 ]];
-  then
-    echo 'This script assemble release apk'
-    echo
-    echo "Usage: ${0} <product flavor>"
-    echo
-    echo "Example: ${0} Foursuites"
-    exit 64
+if [[ $# -ne 1 ]]; then
+  echo 'This script assemble release apk'
+  echo
+  echo "Usage: ${0} <product flavor>"
+  echo
+  echo "Example: ${0} Foursuites"
+  exit 64
 fi
 
 readonly PRODUCT_FLAVOR="${1}"
@@ -29,14 +28,13 @@ readonly CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 readonly LAST_TAG=$(git describe --tags --abbrev=0 --always)
 
 echo 'Ensuring that this script is running on master branch'
-if [[ "${CURRENT_BRANCH}" == "master" ]];
-then
+if [[ "${CURRENT_BRANCH}" == "master" ]]; then
   echo "Last release tag: ${LAST_TAG}"
-  read -rp "Please enter next release tag: " NEXT_TAG; echo
+  read -rp "Please enter next release tag: " NEXT_TAG
+  echo
   export NEXT_TAG
 
-  if [[ -z "${NEXT_TAG}" ]]
-  then
+  if [[ -z "${NEXT_TAG}" ]]; then
     echo 'Next release tag was not entered'
     echo 'Aborting release process'
     exit 1
@@ -53,7 +51,7 @@ then
 else
   echo 'Assembling release apk is allowed only on master branch'
   echo "Current branch is '${CURRENT_BRANCH}'"
-  exit 1;
+  exit 1
 fi
 
 echo 'Assemble apk process completed'

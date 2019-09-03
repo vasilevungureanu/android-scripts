@@ -18,30 +18,29 @@ readonly LAST_TAG=$(git describe --tags --abbrev=0 --always)
 readonly DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo 'Ensuring that this script is running on master branch'
-if [[ "${CURRENT_BRANCH}" == "master" ]];
-  then
-    echo "Last release tag: ${LAST_TAG}"
-    read -rp "Please enter next release tag: " NEXT_TAG; echo
-    export NEXT_TAG
+if [[ "${CURRENT_BRANCH}" == "master" ]]; then
+  echo "Last release tag: ${LAST_TAG}"
+  read -rp "Please enter next release tag: " NEXT_TAG
+  echo
+  export NEXT_TAG
 
-    if [[ -z "${NEXT_TAG}" ]]
-      then
-        echo 'Next release tag was not entered'
-        echo 'Aborting release process'
-        exit 1
-    fi
+  if [[ -z "${NEXT_TAG}" ]]; then
+    echo 'Next release tag was not entered'
+    echo 'Aborting release process'
+    exit 1
+  fi
 
-    echo 'Creating Tag'
-    git tag -a "${NEXT_TAG}" --message "Version ${NEXT_TAG}."
+  echo 'Creating Tag'
+  git tag -a "${NEXT_TAG}" --message "Version ${NEXT_TAG}."
 
-    echo 'Sharing Tag'
-    git push --tags
+  echo 'Sharing Tag'
+  git push --tags
 
-    ./gradlew publishApk
-  else
-    echo 'Releasing is allowed only on master branch'
-    echo "Current branch is '${CURRENT_BRANCH}'"
-    exit 1;
+  ./gradlew publishApk
+else
+  echo 'Releasing is allowed only on master branch'
+  echo "Current branch is '${CURRENT_BRANCH}'"
+  exit 1
 fi
 
 echo 'Release process completed'

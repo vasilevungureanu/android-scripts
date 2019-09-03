@@ -16,11 +16,11 @@ set -o pipefail
 # Returns:
 #  None
 #######################################
-checkAllShellScripts(){
-# shellcheck disable=SC2044
-for file in $(find . -type f \( -name "*.sh" \));
-  do shellcheck "${file}";
-done;
+checkAllShellScripts() {
+  # shellcheck disable=SC2044
+  for file in $(find . -type f \( -name "*.sh" \)); do
+    shellcheck "${file}"
+  done
 }
 
 # Validate Shell code with shellcheck

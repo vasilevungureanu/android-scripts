@@ -18,7 +18,7 @@ echo 'Starting bootstrap process'
 
 echo 'Removing all current git hooks'
 rm -f .git/hooks/*
- 
+
 echo 'Installing pre-push git hook'
 cp quality/quality.sh .git/hooks/pre-push
 chmod +x .git/hooks/pre-push
@@ -36,12 +36,10 @@ cp git/hooks/commit-msg .git/hooks/commit-msg
 chmod +x .git/hooks/commit-msg
 
 echo 'Installing shellcheck'
-if [[ "${OSTYPE}" == "linux-gnu" ]];
-  then
-    sudo apt-get install shellcheck
-elif [[ "${OSTYPE}" == "darwin"* ]];
-  then
-    brew install shellcheck
+if [[ "${OSTYPE}" == "linux-gnu" ]]; then
+  sudo apt-get install shellcheck
+elif [[ "${OSTYPE}" == "darwin"* ]]; then
+  brew install shellcheck
 fi
 
 printf "Installing ktlint"

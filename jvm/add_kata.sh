@@ -25,4 +25,3 @@ cp -r src/main/kotlin/template/ src/main/kotlin/"${NAME}"/
 mkdir src/test/kotlin/"${NAME}"/
 
 echo "${NAME} kata was added"
-
