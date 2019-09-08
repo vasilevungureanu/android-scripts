@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #
-# Add a new kata.
+# Adds a new kata.
 # Thanks to: https://github.com/Egga/katas/blob/master/add_module.sh
 
 # If a command fails then do not proceed and fail this script too
 set -o errexit
-set -o pipefail
+set -o pipedfail
 
 read -rp "Please enter the name: " NAME
 echo
