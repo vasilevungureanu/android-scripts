@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Runs entire release process:
+# Runs the entire release process:
 # * Ensure that the script is running on master branch.
 # * Create Tag.
 # * Share Tag.
@@ -15,10 +15,17 @@ echo 'Starting release process'
 
 readonly CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 readonly LAST_TAG=$(git describe --tags --abbrev=0 --always)
+readonly COMMITS_SINCE_LAST_TAG=$(git log "${LAST_TAG}..HEAD" --pretty=format:%s)
 readonly DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo 'Ensuring that this script is running on master branch'
 if [[ "${CURRENT_BRANCH}" == "master" ]]; then
+
+  echo ""
+  echo "Commits since last release tag:"
+  echo "${COMMITS_SINCE_LAST_TAG}"
+  echo ""
+
   echo "Last release tag: ${LAST_TAG}"
   read -rp "Please enter next release tag: " NEXT_TAG
   echo
