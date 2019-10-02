@@ -27,4 +27,4 @@ checkAllShellScripts() {
 checkAllShellScripts
 
 # Validate Kotlin code with detekt and ktlint
-./gradlew -q detekt ktlint ktlintFormat lintFoursuitesDebug
+./gradlew -q markdownlint detekt ktlint ktlintFormat lintFoursuitesDebug
