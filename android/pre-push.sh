@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #
 # Runs the static code analysis tools.
-# This script also serve as "pre-push" git hook.
 
 # If a command fails then do not proceed and fail this script too
 set -o errexit

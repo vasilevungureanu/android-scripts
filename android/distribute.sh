@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Distribute Debug or Release builds on predefined list of emails.
+# Distributes the Debug or Release builds on a predefined list of emails.
 
 # If a command fails then do not proceed and fail this script too
 set -o errexit

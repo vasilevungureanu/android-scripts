@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #
 # This tool is useful when is need to publish a new branded app on Google Play for the first time.
-# It Runs entire assembling release apk process:
-# * Ensure that the script is running on master branch.
+# It runs the entire assembling release Apk process:
+# * Ensure that the script is running on the master branch.
 # * Create Tag.
 # * Share Tag.
-# * Assemble release apk.
+# * Assemble release Apk.
 
 # If a command fails then do not proceed and fail this script too
 set -o errexit
@@ -46,7 +46,7 @@ if [[ "${CURRENT_BRANCH}" == "master" ]]; then
   echo 'Sharing Tag'
   git push --tags
 
-  ../gradlew "assemble${PRODUCT_FLAVOR}Release"
+  ./gradlew "assemble${PRODUCT_FLAVOR}Release"
 
 else
   echo 'Assembling release apk is allowed only on master branch'

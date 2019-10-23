@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Automatically add branch name to every commit messages.
+# Automatically adds the branch name to every commit message.
 # Thanks to: https://gist.github.com/bartoszmajsak/1396344
 
 readonly BRANCH_NAME=$(git symbolic-ref --short HEAD)

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Runs the entire release process:
-# * Ensure that the script is running on master branch.
+# * Ensure that the script is running on the master branch.
 # * Create Tag.
 # * Share Tag.
 # * Publish APK on Google Play for all apps.
