@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 #
 # Runs the static code analysis tools.
-# This script also serve as "pre-push" git hook.
+# https://github.com/koalaman/shellcheck
+# https://github.com/appmattus/markdown-lint
+# https://arturbosch.github.io/detekt
+# https://ktlint.github.io
+# https://developer.android.com/studio/write/lint
 
 # If a command fails then do not proceed and fail this script too
 set -o errexit
