@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Runs the static code analysis tools.
+# Runs the static code analysis tools and assemble 4Suites Debug build.
 # https://github.com/koalaman/shellcheck
 # https://github.com/appmattus/markdown-lint
 # https://arturbosch.github.io/detekt
@@ -29,4 +29,4 @@ checkAllShellScripts() {
 
 checkAllShellScripts
 
-./gradlew -q markdownlint detekt ktlint ktlintFormat lintFoursuitesDebug
+./gradlew markdownlint detekt ktlintFormat ktlint lintFoursuitesDebug assembleFoursuitesDebug

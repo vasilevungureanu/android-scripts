@@ -29,6 +29,9 @@ readonly LAST_TAG=$(git describe --tags --abbrev=0 --always)
 
 echo 'Ensuring that this script is running on master branch'
 if [[ "${CURRENT_BRANCH}" == "master" ]]; then
+  echo "Running Quality Checks"
+  ./tools/quality.sh
+
   echo "Last release tag: ${LAST_TAG}"
   read -rp "Please enter next release tag: " NEXT_TAG
   echo

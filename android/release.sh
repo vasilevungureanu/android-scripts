@@ -20,6 +20,8 @@ readonly DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo 'Ensuring that this script is running on master branch'
 if [[ "${CURRENT_BRANCH}" == "master" ]]; then
+  echo "Running Quality Checks"
+  ./tools/quality.sh
 
   echo ""
   echo "Commits since last release tag:"
