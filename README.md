@@ -1,3 +1,3 @@
-# Scripts
+# Android Scripts
 
-A collection of scripts that i currently use and eventually will reuse in various projects.
+A collection of scripts that I currently use and eventually will reuse in various Android projects.
